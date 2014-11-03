@@ -84,4 +84,14 @@ public class Ship : MonoBehaviour
 			}
 		}
 	}
+
+	void OnTriggerEnter2D (Collider2D collider)
+	{
+		if (collider.CompareTag ("SaucerBullet")) {
+			//Debug.Log("Test");
+			Destroy (collider.gameObject);
+			nblives -= 1;
+			transform.position = new Vector3 (0, transform.position.y, 0);
+		}
+	}
 }
