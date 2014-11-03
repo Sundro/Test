@@ -81,7 +81,11 @@ public class InvadersManager : MonoBehaviour
 		}
 		if (vide) {
 			victoireLabel.text = "Victoire !";
-			Time.timeScale = 0f;		
+			Time.timeScale = 0f;	
+			if (saucerBool)
+			{
+				destroySaucer(saucer);
+			}
 		}
 	}
 

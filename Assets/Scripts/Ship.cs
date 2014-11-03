@@ -71,11 +71,17 @@ public class Ship : MonoBehaviour
 	
 	void OnCollisionEnter2D (Collision2D collision)
 	{
-		if (collision.collider.CompareTag("Invader"))
-		{
-			Destroy(collision.collider.gameObject);
+		if (collision.collider.CompareTag ("Invader")) {
+			Destroy (collision.collider.gameObject);
 			nblives -= 1;
-			transform.position = new Vector3(0, transform.position.y, 0);
+			transform.position = new Vector3 (0, transform.position.y, 0);
+		} else {
+			if (collision.collider.CompareTag ("SaucerBullet")) {
+				Debug.Log("Test");
+					Destroy (collision.collider.gameObject);
+					nblives -= 1;
+					transform.position = new Vector3 (0, transform.position.y, 0);
+			}
 		}
 	}
 }
